@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Navigation from './components/Navigation/Navigation';
+import Welcome from './pages/Welcome/Welcome';
+import Voting from './pages/Voting/Voting'
+import Breeds from './pages/Breeds/Breeds'
+import Gallery from './pages/Gallery/Gallery'
+import DogState from './store/DogState'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <BrowserRouter>
+      <div className="App">
+        <Navigation />
+
+        <div className="content">
+          <Switch>
+            <Route path="/" exact component={Welcome} />
+            <Route path="/voting" component={Voting} />
+            <Route path="/breeds" component={Breeds} />
+            <Route path="/gallery" component={Gallery} />
+          </Switch>
+
+        </div>
+      </div>
+
+    </BrowserRouter>
   );
 }
 

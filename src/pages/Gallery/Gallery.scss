@@ -1,0 +1,48 @@
+.form-gallery {
+  width: 100%;
+  min-height: 156px;
+  padding: 10px 20px;
+  background-color: #f8f8f7;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.form-select {
+  width: 290px;
+  height: 40px;
+  padding: 10px 8px;
+}
+
+.form-list-check {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form-list-li {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-size: 10px;
+    font-weight: 500;
+    color: #8c8c8c;
+    text-transform: uppercase;
+    padding: 0 10px 5px;
+  }
+}
+
+.btn-reload {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+}
+.li-btn {
+  display: flex;
+  justify-content: space-between;
+}
+.form-select-btn {
+  width: 240px;
+  padding: 10px 8px;
+}
