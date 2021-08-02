@@ -13,13 +13,20 @@ import imgLikeW from '../../assets/ico/like-white-30.svg'
 import imgDislikeW from '../../assets/ico/dislike-white-30.svg'
 import imgFavoriteW from '../../assets/ico/fav-white-30.svg'
 import Navbar from '../../components/NavBar/Navbar';
-
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getRandomDog } from '../../redux/actions/dogAction';
 
 
 
 const Voting = () => {
+
+  const dispatch = useDispatch()
+  const randomDog = useSelector(state => state.dog.url)
+
+  useEffect(() => {
+    dispatch(getRandomDog())
+  }, [])
+
 
 
   return (
@@ -36,7 +43,7 @@ const Voting = () => {
         </div>
 
         <div className="voting-img">
-          <img src={votingImg} alt="voting img" />
+          <img src={randomDog} alt="voting img" />
         </div>
 
         <div className="voting-btn-panel">

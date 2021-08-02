@@ -4,12 +4,13 @@ import Welcome from './pages/Welcome/Welcome';
 import Voting from './pages/Voting/Voting'
 import Breeds from './pages/Breeds/Breeds'
 import Gallery from './pages/Gallery/Gallery'
-import DogState from './store/DogState'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+// import { DogState } from './store/DogStore/DogState';
 
 function App() {
-  return (
 
+
+  return (
     <BrowserRouter>
       <div className="App">
         <Navigation />
@@ -26,7 +27,10 @@ function App() {
       </div>
 
     </BrowserRouter>
+
   );
 }
 
 export default App;
+
+

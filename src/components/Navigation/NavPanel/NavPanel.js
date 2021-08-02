@@ -6,6 +6,8 @@ import imgGallery from '../../../assets/image/images-search.png'
 import { NavLink } from 'react-router-dom'
 
 const NavPanel = () => {
+
+
   return (
     <div className="NavPanel">
 
@@ -13,7 +15,7 @@ const NavPanel = () => {
         <div className="card_bg">
           <img src={imgVoting} alt="Voting" />
         </div>
-        <NavLink to='/voting' className="btn btn-hover">
+        <NavLink to='/voting' className="btn btn-hover" >
           Voting
         </NavLink>
       </div>

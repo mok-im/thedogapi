@@ -9,17 +9,17 @@ import votingImg from '../../assets/image/votingImg.svg'
 
 const Gallery = () => {
 
-  const [dogs, setDogs] = useState([])
-  useEffect(() => {
-    axios.get('https://api.thedogapi.com/v1/breeds')
-      .then((response) => {
-        console.log(response);
-        setDogs(response.data)
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }, [])
+  // const [dogs, setDogs] = useState([])
+  // useEffect(() => {
+  //   axios.get('https://api.thedogapi.com/v1/breeds')
+  //     .then((response) => {
+
+  //       setDogs(response.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  // }, [])
 
 
 
@@ -74,33 +74,13 @@ const Gallery = () => {
               </select>
 
 
-
-
-
-
-
             </li>
 
           </ul>
 
-
-
         </div>
 
 
-
-
-
-
-        <div className="img-container">
-
-          {dogs.map((dog) =>
-            <div className={`post-${dog.id} post-color`}>
-              <img src={dog.image.url} alt={dog.name} />
-            </div>
-
-          )}
-        </div>
       </div>
 
 
