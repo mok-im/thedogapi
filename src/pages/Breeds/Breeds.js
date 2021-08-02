@@ -1,36 +1,81 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Breeds.scss'
 import Navbar from '../../components/NavBar/Navbar';
+import GridImg from '../../components/GridImg/GridImg';
 import imgBack from '../../assets/ico/back-20.svg'
-import votingImg from '../../assets/image/votingImg.svg'
+import { useDispatch, useSelector } from 'react-redux';
+import { getBreeds, getNames, getSearchByName } from '../../redux/actions/dogAction';
+import Loader from '../../components/UI/Loader/Loader'
 
-const Breeds = () => {
+const Breeds = (props) => {
+  const dispatch = useDispatch()
+  const breedsName = useSelector(state => state.dog.names)
+  const loading = useSelector(state => state.dog.loading)
+
+  useEffect(() => {
+    dispatch(getBreeds())
+    dispatch(getNames())
+
+
+  }, [])
+
+  const handleChangeList = (e) => {
+    const breed_id = e.target.value
+    let limit = handleChangeLimit()
+
+    // if (handleChangeLimit() === undefined) {
+    //   console.log('undefinedsssss');
+    //   limit = 15
+    // }
+    dispatch(getBreeds(breed_id, limit))
+  }
+
+  const handleChangeLimit = (e) => {
+    // const limit = e.target.value
+    if (e === undefined) {
+      e = 15
+      return e
+    } else
+      return e.target.value
+    // console.log(e.target.value);
+    // return e.target.value
+  }
+
+
   return (
     <section className="Breeds">
       <Navbar />
 
       <div className="vote-content">
-
         <div className="navbar-content">
-
           <a href="/" className="search-btn">
             <img src={imgBack} alt="back" />
           </a>
-
-          <a href="/" className="btn-navbar">
+          <button className="btn-navbar"
+          >
             BREEDS
-          </a>
+          </button>
 
-          <select name="Breeds" id="" className="navbar-select-breeds">
-            <option value="1">All breeds</option>
-            <option value="1">Affenpinscher</option>
+          <select name="Breeds" className="navbar-select-breeds"
+            onChange={handleChangeList}
+
+          >
+            {
+              breedsName.map(breed =>
+                <option value={breed.id}>{breed.name}</option>
+              )
+            }
           </select>
 
-          <select name="Limit" id="" className="navbar-select-limit">
-            <option value="1">Limit: 5</option>
-            <option value="1">Limit: 10</option>
-            <option value="1">Limit: 15</option>
-            <option value="1">Limit: 20</option>
+          <select
+            name="Limit"
+            className="navbar-select-limit"
+            onChange={handleChangeLimit}
+          >
+            <option value="5">Limit: 5</option>
+            <option value="10">Limit: 10</option>
+            <option defaultValue="15">Limit: 15</option>
+            <option value="20">Limit: 20</option>
           </select>
 
           <a href="/" className="vector-up">
@@ -40,28 +85,13 @@ const Breeds = () => {
 
         </div>
 
-        <div className="img-container">
-          <div className="post-1 post-color">
-            <img src={votingImg} alt="" />
-          </div>
-          <div className="post-2 post-color">
-            <img src={votingImg} alt="" />
-          </div>
-          <div className="post-3 post-color">
-            <img src={votingImg} alt="" />
-          </div>
-          <div className="post-4 post-color">
-            <img src={votingImg} alt="" />
-          </div>
-          <div className="post-5 post-color">
-            <img src={votingImg} alt="" />
-          </div>
+        {
+          loading ? <Loader /> : <GridImg />
+        }
 
 
-        </div>
       </div>
-
-    </section>
+    </section >
   );
 };
 

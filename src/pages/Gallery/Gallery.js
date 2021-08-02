@@ -5,24 +5,10 @@ import './Gallery.scss'
 import Navbar from '../../components/NavBar/Navbar';
 import imgBack from '../../assets/ico/back-20.svg'
 import votingImg from '../../assets/image/votingImg.svg'
+import GridImg from '../../components/GridImg/GridImg';
 
 
 const Gallery = () => {
-
-  const [dogs, setDogs] = useState([])
-  useEffect(() => {
-    axios.get('https://api.thedogapi.com/v1/breeds')
-      .then((response) => {
-        console.log(response);
-        setDogs(response.data)
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }, [])
-
-
-
 
   return (
     <section className="Gallery">
@@ -74,37 +60,15 @@ const Gallery = () => {
               </select>
 
 
-
-
-
-
-
             </li>
 
           </ul>
 
-
-
         </div>
 
 
-
-
-
-
-        <div className="img-container">
-
-          {dogs.map((dog) =>
-            <div className={`post-${dog.id} post-color`}>
-              <img src={dog.image.url} alt={dog.name} />
-            </div>
-
-          )}
-        </div>
+        <GridImg />
       </div>
-
-
-
     </section >
   );
 };
