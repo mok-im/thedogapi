@@ -10,6 +10,24 @@ import GridImg from '../../components/GridImg/GridImg';
 
 const Gallery = () => {
 
+<<<<<<< HEAD
+=======
+  // const [dogs, setDogs] = useState([])
+  // useEffect(() => {
+  //   axios.get('https://api.thedogapi.com/v1/breeds')
+  //     .then((response) => {
+
+  //       setDogs(response.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  // }, [])
+
+
+
+
+>>>>>>> d87e69bbef0c9da30d6bc97e74be53eb9056ce19
   return (
     <section className="Gallery">
       <Navbar />
@@ -67,7 +85,10 @@ const Gallery = () => {
         </div>
 
 
+<<<<<<< HEAD
         <GridImg />
+=======
+>>>>>>> d87e69bbef0c9da30d6bc97e74be53eb9056ce19
       </div>
     </section >
   );
